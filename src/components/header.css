@@ -1,0 +1,108 @@
+:root{
+    --main: #236c75;
+    --bg: #F5F5ED;
+    --card: #f6f6f2;
+    --txt: #464343b2;
+    --icon: #55a5a9;
+    --main2: #e2743e;
+}
+@font-face {
+    font-family: outfit;
+    src: url(../fonts/outfit.ttf);
+}
+@font-face {
+    font-family: jakrta;
+    src: url(../fonts/jakrta.ttf);
+}
+.Header{
+    background-color: var(--bg);
+    padding: 0 16px 0 16px;
+    width: 100%;
+    border-bottom: 1px solid #4544443b;
+        box-sizing: border-box;
+
+}
+.Header .container{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 65px;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.logo > img{
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
+    transition: 0.5s ease;
+}
+.logo > img:hover{
+    transform: scale(1.08);
+}
+.logo span {
+    font-size: 20px;
+    color: #23636C;
+    font-family: 'outfit';
+    font-weight: 800;
+}
+.logo > span > svg {
+    padding: 0 !important;
+    margin: 0 !important;  
+    display: inline-block; 
+    vertical-align: middle; 
+}
+.navlinks{
+    display: flex;
+    gap:20px;  
+    font-family: 'outfit';  
+    font-size: 15px;
+    font-weight: 600;
+}
+.navlinks a{
+    text-decoration: none;
+    color: var(--txt);
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+.navlinks a.active {
+    color: var(--main);
+}
+.navlinks a:hover{
+    color: var(--main);
+}
+.btns{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.btns a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease;
+    padding: 8px;
+    border-radius: 50%;
+}
+.btns a:hover{
+    background-color: #CCBDA4;
+}
+.btns > button{
+    padding: 10px 16px;
+    font-family: 'outfit';
+    font-size: 14px;
+    border-radius: 12px;
+    color: var(--card);
+    background-color: var(--main);
+    border: none;
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+.btns > button:hover{
+    background-color: #407c83;
+}

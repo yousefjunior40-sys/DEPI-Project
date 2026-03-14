@@ -1,0 +1,107 @@
+:root{
+    --main: #236c75;
+    --main2: #e2743e;
+    --txt2: #f5f6ee;
+}
+@font-face {
+    font-family: outfit;
+    src: url(../fonts/outfit.ttf);
+}
+@font-face {
+    font-family: jakrta;
+    src: url(../fonts/jakrta.ttf);
+}
+.footer{
+    background-color: var(--main);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+}
+.containerF{
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    font-family: 'outfit';
+    color: var(--bg);
+}
+.containerF > div > ul{
+    list-style: none;
+    padding: 0;
+}
+.containerF > div > p{
+    margin-top: 0;
+}
+.sec1 > span{
+    font-size: 20px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+span > svg {
+    padding: 0 !important;
+    margin: 0 !important;  
+    display: inline-block; 
+    vertical-align: middle; 
+}
+.sec1 > p {
+    width: 320px;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--txt2);
+    opacity: 0.7;
+    line-height: 22px;
+}
+
+.sec2 > p{
+    font-size: 20px;
+    font-weight: 600;
+
+}
+.sec2 > ul > li > a {
+    text-decoration: none;
+    color: var(--txt2);
+    opacity: 0.7;
+}
+.sec2 > ul > li{
+    margin-bottom: 8px;
+}
+
+.sec3 > p{
+    font-size: 20px;
+    font-weight: 600;
+}
+.sec3 > ul > li > a {
+    text-decoration: none;
+    color: var(--txt2);
+    opacity: 0.7;
+}
+.sec3 > ul > li{
+    margin-bottom: 8px;
+}
+
+.sec4 > p{
+    font-size: 20px;
+    font-weight: 600;
+}
+.sec4 > ul > li{
+    margin-bottom: 8px;
+    color: var(--txt2);
+    opacity: 0.7;
+}
+hr{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    opacity: 0.4;
+}   
+.rights{
+    text-align: center;
+    color: var(--txt2);
+    opacity: 0.6;
+    font-family: 'outfit';
+    padding-top: 25px;
+    font-size: 15px;
+}
