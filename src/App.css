@@ -1,3 +1,11 @@
+@font-face {
+    font-family: outfit;
+    src: url(./fonts/outfit.ttf);
+}
+@font-face {
+    font-family: jakrta;
+    src: url(./fonts/jakrta.ttf);
+}
 body{
     padding: 0;
     margin: 0 auto;

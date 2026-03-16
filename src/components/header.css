@@ -6,21 +6,13 @@
     --icon: #55a5a9;
     --main2: #e2743e;
 }
-@font-face {
-    font-family: outfit;
-    src: url(../fonts/outfit.ttf);
-}
-@font-face {
-    font-family: jakrta;
-    src: url(../fonts/jakrta.ttf);
-}
+
 .Header{
     background-color: var(--bg);
     padding: 0 16px 0 16px;
     width: 100%;
     border-bottom: 1px solid #4544443b;
-        box-sizing: border-box;
-
+    box-sizing: border-box;
 }
 .Header .container{
     width: 90%;
@@ -81,7 +73,7 @@
     align-items: center;
     gap: 15px;
 }
-.btns a{
+.btns a:nth-child(1), .btns a:nth-child(2), .btns a:nth-child(3){
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -89,10 +81,10 @@
     padding: 8px;
     border-radius: 50%;
 }
-.btns a:hover{
+.btns a:nth-child(1):hover,.btns a:nth-child(2):hover,.btns a:nth-child(3):hover{
     background-color: #CCBDA4;
 }
-.btns > button{
+.btns > a > button{
     padding: 10px 16px;
     font-family: 'outfit';
     font-size: 14px;
@@ -100,9 +92,9 @@
     color: var(--card);
     background-color: var(--main);
     border: none;
-    transition: 0.25s ease;
+    transition: 0.3s ease;
     cursor: pointer;
 }
-.btns > button:hover{
+.btns > a > button:hover{
     background-color: #407c83;
 }
