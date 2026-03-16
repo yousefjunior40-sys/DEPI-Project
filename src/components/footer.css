@@ -3,18 +3,8 @@
     --main2: #e2743e;
     --txt2: #f5f6ee;
 }
-@font-face {
-    font-family: outfit;
-    src: url(../fonts/outfit.ttf);
-}
-@font-face {
-    font-family: jakrta;
-    src: url(../fonts/jakrta.ttf);
-}
 .footer{
     background-color: var(--main);
-    position: absolute;
-    bottom: 0;
     width: 100%;
     padding: 40px;
     box-sizing: border-box;

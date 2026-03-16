@@ -61,8 +61,8 @@ function Header() {
           </svg>
         </Link>
 
-        <button>Sign In</button>
-        <button>Sign Up</button>
+        <Link to="/login"><button>Sign In</button></Link>
+        <Link to="/register"><button>Sign Up</button></Link>
       </div>
       </div>
     </header>

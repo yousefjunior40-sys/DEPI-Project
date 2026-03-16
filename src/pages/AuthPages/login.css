@@ -1,0 +1,98 @@
+:root{
+    --main: #236c75;
+    --bg: #EAECDA;;
+    --card: #f6f6f2;
+    --txt: #464343b2;
+    --icon: #55a5a9;
+    --main2: #e2743e;
+}
+.loginMain{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'outfit';
+    background-color: var(--bg);
+}
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    background-color: var(--card);
+    border-radius: 25px;
+    padding: 40px;
+    padding-right: 20px;
+    border: 2px solid var(--main2);
+    color: var(--main);
+    width: 60%;
+    height: 50%;
+}
+.login > img{
+    width: 600px;
+    height: 400px;
+    object-fit: contain;
+    border-radius: 25%;
+    animation: Truck 2s ease-in-out infinite;
+}
+@keyframes Truck{
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+.login > form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-left: 20px;
+    width: 600px;
+}
+.login h1{
+    font-size: 48px;
+    font-weight: 600;
+    margin: 10px;
+    color: var(--txt);
+}
+.login > form input[type="text"],
+.login > form input[type="password"] {
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    border: 2px solid var(--main2);
+    font-size: 1rem;
+}
+.pt2{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.pt2 > a {
+    color: var(--main);
+    text-decoration: none;
+    transition: 0.3s;
+}
+.pt2 > a:hover {
+    color: var(--main2);
+}
+.loginBtn{
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 2px solid var(--main2); 
+    background-color: var(--main2);  
+    width: 40%;
+    font-size: larger;
+    color: #fff;                     
+    font-weight: 500;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.loginBtn:hover{
+    background-color: var(--main);   
+    color: #fff;                  
+    border-color: var(--main);      
+}
