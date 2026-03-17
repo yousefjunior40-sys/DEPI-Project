@@ -3,6 +3,7 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import Login from "./pages/AuthPages/login";
 import Register from "./pages/AuthPages/register";
+import AppSection from "./components/AppSection";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 // بتحكم هنا في ظهور الهيدر والفوتر علشان لو موجود في اللوجين و الرجيستر يختفي
@@ -12,7 +13,9 @@ function Layout({ children }) {
   return (
     <>
       {!hideHeaderFooter && <Header />}
-      <main>{children}</main>
+      <main>{children}
+      <AppSection />
+      </main>
       {!hideHeaderFooter && <Footer />}
     </>
   );

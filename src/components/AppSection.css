@@ -1,0 +1,82 @@
+.app-section {
+  padding: 80px 0;
+  background: #f6f6ea;
+}
+
+.app-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.app-text {
+  flex: 1;
+}
+
+.tag {
+  background: #ffe7d4;
+  color: #ff7a00;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.app-text h2 {
+  color: #464343;
+  font-size: 40px;
+  margin: 15px 0;
+}
+
+.app-text h2 span {
+  color: #DD8046;
+}
+
+.desc {
+  color: #6b7280; 
+  font-size: 1.125rem; 
+  max-width: 32rem; 
+  margin: 5px 0px 30px 0px;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+}
+
+.features li {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.app-btn,
+.play-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #222;
+  color: white;
+  cursor: pointer;
+}
+
+.app-image img {
+  width: 450px;
+  border-radius: 30px;
+  transition: transform .7s ease-out; 
+  margin-top: 35px;
+  margin-right: 30px;
+
+}
+
+.app-image img:hover {
+ transform: scale(1.05);  
+}
