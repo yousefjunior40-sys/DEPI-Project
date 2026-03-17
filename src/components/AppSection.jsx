@@ -1,13 +1,20 @@
-
 import "./AppSection.css";
-import { Search, MapPin, ArrowRight, ChevronRight, Star, UtensilsCrossed, Heart, Play } from "lucide-react";
+import {
+  Search,
+  MapPin,
+  ArrowRight,
+  ChevronRight,
+  Star,
+  UtensilsCrossed,
+  Heart,
+  Play,
+} from "lucide-react";
 import mobileAppImage from "../assets/mobileapp.jpeg";
 
 export default function AppSection() {
   return (
     <section className="app-section">
       <div className="app-container">
-
         <div className="app-text">
           <span className="tag">Mobile App</span>
 
@@ -20,10 +27,42 @@ export default function AppSection() {
           </p>
 
           <ul className="features">
-            <li>Discover nearby food trucks through an interactive map.</li>
-            <li>Explore menus and read ratings before visiting.</li>
-            <li>Food truck owners can register and share menus.</li>
-            <li>Connect food lovers with the best street food.</li>
+            <div class="container">
+              <div class="icon-box">
+                <MapPin color="#55A5A0" size={20} />
+              </div>
+              <p>
+                Truck Spot helps users easily discover nearby food trucks
+                through an interactive map.
+              </p>
+            </div>
+            <div class="container">
+              <div class="icon-box">
+                <Star color="#55A5A0" size={20} />
+              </div>
+              <p>
+                Users can explore menus, view locations, and read ratings before
+                visiting a food truck.
+              </p>
+            </div>
+            <div class="container">
+              <div class="icon-box">
+                <UtensilsCrossed color="#55A5A0" size={20} />
+              </div>
+              <p>
+                The platform also allows food truck owners to register their
+                trucks and share their menus.
+              </p>
+            </div>
+            <div class="container">
+              <div class="icon-box">
+                <Heart color="#55A5A0" size={20} />
+              </div>
+              <p>
+                Our goal is to create a simple hub that connects food lovers
+                with the best street food around them.
+              </p>
+            </div>
           </ul>
 
           <div className="buttons">
@@ -31,14 +70,11 @@ export default function AppSection() {
             <button className="play-btn">Google Play</button>
           </div>
         </div>
-        
 
         <div className="app-image">
           {<img src={mobileAppImage} alt="TruckSpot Mobile App"></img>}
         </div>
-
       </div>
     </section>
-    
   );
 }
