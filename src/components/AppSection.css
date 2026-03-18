@@ -113,11 +113,12 @@
 .container {
   display: flex;
   align-items: center;
-  gap: 10px;
+
   margin-top: 6px;
 }
 .container p {
+  padding: 5px;
   font-size: 16px;
   flex: 1;
-  color: #555;
+  color: #6b7280;
 }
