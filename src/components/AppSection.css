@@ -9,7 +9,6 @@
 .app-section {
   padding: 80px 0;
   background: #f6f6ea;
-  margin: 0;
 }
 
 .app-container {
@@ -42,13 +41,15 @@
 }
 
 .app-text h2 span {
-  color: #DD8046;
+  color: #dd8046;
 }
 
 .desc {
   color: #6b7280; 
   font-size: 1.125rem; 
-  max-width: 34rem; 
+  color: #6b7280;
+  font-size: 1.125rem;
+  max-width: 34rem;
   margin: 5px 0px 30px 0px;
 }
 
@@ -57,61 +58,85 @@
   padding: 0;
 }
 
-.buttons {
-  margin-top: 20px;
+.buttons-container {
   display: flex;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 16px;
 }
 
-.app-btn,
-.play-btn {
+.store-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #333;
+  color: white;
   padding: 12px 20px;
   border: none;
-  border-radius: 10px;
-  background: #222;
-  color: white;
+  border-radius: 12px;
   cursor: pointer;
   font-family: 'jakrta';
   transition: 0.4s ease;
 }
 
-.app-btn:hover,
-.play-btn:hover {
-  background-color: var(--main);
+.store-btn:hover {
+  background-color: var(--main2);
+  transition: all 0.3s ease;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.text {
+  text-align: left;
+}
+
+.small-text {
+  font-size: 10px;
+  line-height: 1.1;
+  opacity: 0.8;
+}
+
+.big-text {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.1;
 }
 
 .app-image img {
   width: 450px;
   border-radius: 30px;
-  transition: transform .7s ease-out; 
+  transition: transform 0.7s ease-out;
   margin-top: 35px;
   margin-right: 30px;
   height: 280px;
 }
 
 .app-image img:hover {
- transform: scale(1.05);  
+  transform: scale(1.05);
 }
 .icon-box {
   width: 37px;
   height: 37px;
-
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 10px;
-  background-color:#DAE4D4;
-  border: 2px solid #BFD7C9;
+  background-color: #dae4d4;
+  border: 2px solid #bfd7c9;
   border-radius: 10px;
 }
 .container {
   display: flex;
-  align-items: center; /* يخليهم على نفس الخط */
-  gap: 10px; /* مسافة بينهم */
+  align-items: center;
+
   margin-top: 6px;
 }
 .container p {
-  /* يلغي المسافة الافتراضية بين الفقرات */
+  padding: 5px;
   font-size: 16px;
-  color: #555;
+  flex: 1;
+  color: #6b7280;
 }
