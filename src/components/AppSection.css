@@ -1,10 +1,10 @@
-:root{
-    --main: #236c75;
-    --bg: #F5F5ED;
-    --card: #f6f6f2;
-    --txt: #464343b2;
-    --icon: #55a5a9;
-    --main2: #e2743e;
+:root {
+  --main: #236c75;
+  --bg: #f5f5ed;
+  --card: #f6f6f2;
+  --txt: #464343b2;
+  --icon: #55a5a9;
+  --main2: #e2743e;
 }
 .app-section {
   padding: 80px 0;
@@ -23,7 +23,7 @@
 
 .app-text {
   flex: 1;
-  font-family: 'Outfit';
+  font-family: "Outfit";
 }
 
 .tag {
@@ -45,8 +45,8 @@
 }
 
 .desc {
-  color: #6b7280; 
-  font-size: 1.125rem; 
+  color: #6b7280;
+  font-size: 1.125rem;
   color: #6b7280;
   font-size: 1.125rem;
   max-width: 34rem;
@@ -75,7 +75,7 @@
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  font-family: 'jakrta';
+  font-family: "jakrta";
   transition: 0.4s ease;
 }
 
@@ -109,9 +109,9 @@
   width: 450px;
   border-radius: 30px;
   transition: transform 0.7s ease-out;
-  margin-top: 35px;
-  margin-right: 30px;
-  height: 280px;
+  margin-top: 55px;
+  margin-left: 25px;
+  height: 250px;
 }
 
 .app-image img:hover {
@@ -131,7 +131,6 @@
 .container {
   display: flex;
   align-items: center;
-
   margin-top: 6px;
 }
 .container p {
