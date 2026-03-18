@@ -1,0 +1,9 @@
+forget Passwprd page structure:
+• Email input will send an otp msg for the email written 
+• (check if the email is real and there is an account in the database used this email)
+• write the otp in the otp input 
+• check if true he can reset the pass then we modfiy it in the database
+• else msg wrong otp
+---------------------------
+same desgin as register and login page
+

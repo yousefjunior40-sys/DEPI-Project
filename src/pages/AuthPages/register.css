@@ -1,161 +1,132 @@
 :root{
     --main: #236c75;
-    --bg: #EAECDA;;
+    --bg: #EAECDA;
     --card: #f6f6f2;
     --txt: #464343b2;
     --icon: #55a5a9;
     --main2: #e2743e;
 }
-
-*{
-    font-family: 'outfit';
-}
-
 .registerMain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+img{
+    height: 66px;
+    width: 66px;
+}
+.register{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.register > h1{
+    font-size: 26px;
+    color: #464343;
+    margin-bottom: 5px;
+    font-family: 'Outfit';
+}
+.register > p{
+    font-size: 16px;
+    font-family: 'jakrta';
+    color: #867c89;
+    margin-top: 5px;
+}
+.type{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.type > button{
+    width: 130px;
+    padding: 10px 22px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--bg);
-    min-height: 100vh;
-    padding: 20px;
-}
-
-.userType{
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.userType h1{
-    font-size: 2rem;
-    margin-bottom: 25px;
-    color: var(--main2);
-}
-
-.btns1{
-    display: flex;
     justify-content: center;
-    gap: 20px;
-}
-
-.btns1 > button{
-    padding: 12px 15px;
+    gap: 5px;
     border-radius: 12px;
-    border: 3px solid var(--main2);
-    background-color: transparent;
-    width: 120px;
-    font-size: larger;
-    color: var(--txt);
+    border: 2px solid #ccc;
+    font-family: 'jakrta';
+    font-size: 12px;
     font-weight: 600;
+    opacity: 0.7;
     cursor: pointer;
     transition: 0.3s ease;
 }
-
-.btns1 > button.active,
-.btns1 > button:hover{
-    background-color: var(--main);
-    color: #fff;
-    border-color: var(--main);
-}
-
-.register{
-    background-color: var(--card);
-    border-radius: 25px;
-    width: 1000px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
+.type > button:hover{
     border: 2px solid var(--main2);
+    background-color: #F6F1E9;
 }
 
-.register form{
-    padding: 30px;
-    max-width: 400px;
-    width: 100%;
+form{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    padding: 20px;
+    background-color: #f8f8f2;
+    border-radius: 24px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border: 1px solid var(--main2);
 }
-.register form > label{
-    align-self: center;
+form > label {
+    font-family: 'jakrta';
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: #464343;
+    font-weight: 500;
 }
-
-.register form h1{
-    text-align: center;
-    margin-bottom: 20px;
-    color: var(--txt);
+.email, .pass, .name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
 }
-
-.register form input[type="text"],
-.register form input[type="tel"],
-.register form input[type="password"]{
-    padding: 10px 12px;
-    border-radius: 10px;
+.email > svg, .pass > svg, .name > svg{
+    margin-right: 10px;
+}
+form > div > input{
+    padding: 12px;
+    padding-right: 0px;
+    width: 360px;
+    border-radius: 12px;
+    font-family: 'jakrta';
     border: 2px solid #ccc;
-    width: 100%;
-    font-size: 1rem;
-    outline: none;
-    transition: 0.3s;
+    background-color: var(--bg);
 }
-
-.register form input:focus{
-    border-color: var(--main);
-}
-
-.register form label{
+.registerBtn{
+    border-radius: 12px;
+    padding: 10px;
     margin-top: 10px;
-    font-weight: 600;
-    color: var(--txt);
+    margin-bottom: 10px;
+    background-color: var(--main2);
+    color: var(--card);
+    font-size: 20px;
+    border: 1px solid var(--main2);
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-family: 'Outfit';
+    font-size: 18px;
 }
-
-.register form input[type="radio"]{
-    margin-left: 10px;
-    margin-right: 5px;
+.registerBtn:hover{
+    background-color: #DF8B57;
 }
-
-.pt1{
+form > p{
     text-align: center;
-    margin-top: 10px;
+    font-weight: 400;
+    color: var(--txt);
+    font-family: 'jakrta';
 }
-
-.pt1 a{
+form > p > a{
     text-decoration: none;
     color: var(--main2);
-    transition: 0.3s;
+    font-weight: 500;
 }
-
-.pt1 a:hover{
+form > p > a:hover{
+    text-decoration: underline;
     color: var(--main);
-}
-
-.register form button[type="submit"]{
-    align-self: center;
-    padding: 12px 0;
-    margin-top: 15px;
-    border-radius: 12px;
-    border: none;
-    background-color: var(--main2);
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-    width: 200px;
-}
-
-.register form button[type="submit"]:hover{
-    background-color: var(--main);
-}
-
-.register img{
-    max-width: 400px;
-    width: 100%;
-    border-radius: 15px;
-    object-fit: contain;
-    animation: Truck 2s ease-in-out infinite;
-}
-@keyframes Truck{
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
 }
