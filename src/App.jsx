@@ -4,6 +4,7 @@ import Footer from "./components/footer";
 import Login from "./pages/AuthPages/login";
 import Register from "./pages/AuthPages/register";
 import AppSection from "./components/AppSection";
+import ProfilePage from './pages/AuthPages/ProfilePage';
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 // بتحكم هنا في ظهور الهيدر والفوتر علشان لو موجود في اللوجين و الرجيستر يختفي
@@ -29,6 +30,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/ProfilePage" element={<ProfilePage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

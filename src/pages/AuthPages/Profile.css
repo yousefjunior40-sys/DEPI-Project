@@ -1,0 +1,212 @@
+
+.profile-page {
+  background-color:#EAECDA; 
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  display: flex;
+  justify-content: center;
+  color: #38342E;
+}
+
+.profile-container {
+  width: 100%;
+  max-width: 650px;
+}
+
+
+.card {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  background-color: #E2ECEB;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2D6C6B;
+  margin-right: 20px;
+}
+
+.avatar svg {
+  width: 28px;
+  height: 28px;
+}
+
+.user-details {
+  flex: 1;
+}
+
+.user-details h2 {
+  margin: 0 0 4px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.user-details p {
+  margin: 0;
+  font-size: 14px;
+  color: #8A857E;
+}
+
+.edit-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #E6DFD7;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #726658;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.edit-btn:hover {
+  opacity: 0.8;
+}
+
+.edit-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 28px 0 16px 0;
+  color: #38342E;
+}
+
+.list-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.list-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.card-header h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.card-meta {
+  margin: 0;
+  font-size: 13px;
+  color: #8A857E;
+}
+
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.badge-delivered {
+  background-color: #E0EFEF;
+  color: #388D8C;
+}
+
+.badge-on-way {
+  background-color: #FCEBE4;
+  color: #D37456;
+}
+
+
+.chevron {
+  color: #BDB9B3;
+  display: flex;
+  align-items: center;
+}
+
+.chevron svg {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-wrapper {
+  width: 24px;
+  margin-right: 16px;
+  display: flex;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.icon-wrapper svg {
+  width: 20px;
+  height: 20px;
+}
+
+.home-icon {
+  color: #E28F6E;
+}
+
+.work-icon {
+  color: #6EB2B1;
+}
+
+.address-content h4 {
+  margin: 0 0 6px 0;
+  font-size: 15px;
+  font-weight: 600;
+} 
+.sign-out-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  color: #D9695B;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 24px;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.sign-out-btn:hover {
+  opacity: 0.7;
+}
+
+.sign-out-btn svg {
+  width: 18px;
+  height: 18px;
+}
