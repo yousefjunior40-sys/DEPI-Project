@@ -1,0 +1,171 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500&display=swap');
+
+/* section */
+.hero {
+  text-align: center;
+  padding: 140px 20px;
+  background: E8FE6; /* اللون الصح */
+  position: relative;
+  overflow: hidden;
+}
+/* overlay */
+
+/* content فوق */
+.hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  background: #F6D7C3;
+  color: #E2743E;
+
+  padding: 8px 18px;
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+
+  margin-bottom: 35px;
+}
+
+.location-icon {
+  font-size: 16px;
+}
+
+
+/* title */
+.hero-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: #2f2f2f;
+  line-height: 1.25;
+}
+
+.hero-title span {
+  color: #E2743E;
+  position: relative;
+}
+
+.hero-title span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 22px;
+
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q50 20 100 10 T200 10' stroke='%23E2743E' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center;
+
+  background-size: 100% 100%;
+}
+
+/* desc */
+.hero-desc {
+  margin-top: 20px;
+  color: #6f6f6f;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* search */
+.hero-search {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #F6F6F2;
+  padding: 0 16px;
+  border-radius: 16px;
+  width: 420px;
+  height: 60px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+.search-icon {
+  color: #999;
+  margin-right: 10px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* button */
+.hero-search button {
+  margin-left: 12px;
+  padding: 16px 28px;
+  background: #E2743E;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-search button:hover {
+  background: #cf6633;
+  transform: translateY(-2px);
+}
+
+/* stats */
+.hero-stats {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  color: #777;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.hero-stats span b {
+  color: #E2743E;
+}
+
+/* icons */
+.hero-icons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-icons .icon {
+  position: absolute;
+  font-size: 22px;
+  opacity: 0.08;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* positions (زي ما انت ظبطتهم) */
+.burger { top: 22%; left: 6%; }
+.donut { top: 15%; left: 70%; transform: translateX(-50%); }
+.taco { top: 24%; right: 6%; }
+.pizza { bottom: 18%; left: 30%; }
+.drink { bottom: 13%; right: 35%; }
+
+/* animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}

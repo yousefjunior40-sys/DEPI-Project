@@ -1,4 +1,5 @@
 import './App.css';
+import HeroSection from "./components/sections/hero/HeroSection";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import Login from "./pages/AuthPages/login";
@@ -54,6 +55,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/ProfilePage" element={<ProfilePage />} />
+          <Route path="/hero" element={<HeroSection />} />
         </Routes>
       </Layout>
     </BrowserRouter>
