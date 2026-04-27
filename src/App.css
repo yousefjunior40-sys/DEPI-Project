@@ -1,14 +1,23 @@
-@font-face {
-  font-family: outfit;
-  src: url(./fonts/outfit.ttf);
+body{
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: #EAECDA;
 }
-@font-face {
-  font-family: jakrta;
-  src: url(./fonts/jakrta.ttf);
-}
-body {
+html, body, #root {
+  height: 100%;
+  margin: 0;
   padding: 0;
-  margin: 0 auto;
+}*, *::before, *::after {
   box-sizing: border-box;
-  background-color: #eaecda;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: #EAECDA;
 }

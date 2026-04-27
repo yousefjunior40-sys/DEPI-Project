@@ -5,29 +5,52 @@ import Login from "./pages/AuthPages/login";
 import Register from "./pages/AuthPages/register";
 import AppSection from "./components/AppSection";
 import ProfilePage from './pages/AuthPages/ProfilePage';
+import TruckGrid from './components/TruckGrid';
+import trucks from './components/trucks';
+
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
-// بتحكم هنا في ظهور الهيدر والفوتر علشان لو موجود في اللوجين و الرجيستر يختفي
+// Layout للتحكم في الهيدر والفوتر
 function Layout({ children }) {
   const location = useLocation();
-  const hideLayout = location.pathname === "/login" || location.pathname === "/register";
+  const hideLayout =
+    location.pathname === "/login" ||
+    location.pathname === "/register";
+
   return (
     <>
       {!hideLayout && <Header />}
-        <main>
-          {children}
-          {!hideLayout && <AppSection />}
-        </main>
+
+      <main style={{ flex: 1, background: '#EBEAE0', padding: '2rem' }}>
+        {children}
+        {!hideLayout && <AppSection />}
+      </main>
+
       {!hideLayout && <Footer />}
     </>
   );
 }
 
-function App() {
+// App الرئيسي
+export default function App() {
   return (
     <BrowserRouter>
       <Layout>
         <Routes>
+          <Route
+            path="/"
+            element={
+              <TruckGrid
+                trucks={trucks}
+                isLoading={false}
+                title="Featured Food Trucks"
+                onSeeAll={() => console.log('See all clicked')}
+                onCardClick={(truck) =>
+                  console.log('Clicked:', truck.name)
+                }
+              />
+            }
+          />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/ProfilePage" element={<ProfilePage />} />
@@ -36,5 +59,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;
