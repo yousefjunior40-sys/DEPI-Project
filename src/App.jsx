@@ -8,9 +8,9 @@ import AppSection from "./components/AppSection";
 import ProfilePage from './pages/AuthPages/ProfilePage';
 import TruckGrid from './components/TruckGrid';
 import trucks from './components/trucks';
-
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-
+import TruckDetail from "./components/TruckDetail";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+  
 // Layout للتحكم في الهيدر والفوتر
 function Layout({ children }) {
   const location = useLocation();
@@ -35,43 +35,45 @@ function Layout({ children }) {
 
 // App الرئيسي
 export default function App() {
+  const navigate = useNavigate();
+
   return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
+    <Layout>
+      <Routes>
 
-          {/* HOME PAGE */}
-          <Route
-            path="/"
-            element={
-              <>
-                <HeroSection />
+        {/* HOME PAGE */}
+        <Route
+          path="/"
+          element={
+            <>
+              <HeroSection />
 
-                <TruckGrid
-                  trucks={trucks}
-                  isLoading={false}
-                  title="Featured Food Trucks"
-                  onSeeAll={() => console.log('See all clicked')}
-                  onCardClick={(truck) =>
-                    console.log('Clicked:', truck.name)
-                  }
-                />
-              </>
-            }
-          />
+              <TruckGrid
+                trucks={trucks}
+                isLoading={false}
+                title="Featured Food Trucks"
+                onSeeAll={() => console.log('See all clicked')}
+                onCardClick={(truck) => navigate(`/truck/${truck.id}`)}
+              />
+            </>
+          }
+        />
 
-          {/* AUTH PAGES */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+        {/* AUTH PAGES */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-          {/* PROFILE */}
-          <Route path="/ProfilePage" element={<ProfilePage />} />
+        {/* PROFILE */}
+        <Route path="/ProfilePage" element={<ProfilePage />} />
 
-          {/* HERO PAGE (اختياري) */}
-          <Route path="/hero" element={<HeroSection />} />
-
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+        {/* HERO PAGE (اختياري) */}
+        <Route path="/hero" element={<HeroSection />} />
+        {/* TRUCK DETAIL */}
+        <Route 
+          path="/truck/:id" 
+          element={<TruckDetail onBack={() => navigate(-1)} />} 
+        />
+      </Routes>
+    </Layout>
   );
 }

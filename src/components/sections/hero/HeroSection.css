@@ -3,7 +3,9 @@
 .hero {
   text-align: center;
   padding: 140px 20px;
-  background: E8FE6; /* اللون الصح */
+  background: linear-gradient(rgba(232, 254, 230, 0.9), rgba(232, 254, 230, 0.9)), url("/assets/hero-bg.png");
+  background-size: cover;
+  background-position: center;
   position: relative;
   overflow: hidden;
 } /* overlay */ /* content فوق */

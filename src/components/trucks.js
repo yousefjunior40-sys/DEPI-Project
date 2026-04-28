@@ -14,6 +14,8 @@ const trucks = [
     isOpen: true,
     distance: '0.3 mi',
     hours: '11:00AM - 9:00PM',
+    location: 'Downtown Food Park',
+    description: 'Authentic smoked meats with homemade sauces. Our brisket has won 3 local awards.',
     image: 'https://images.unsplash.com/photo-1514190051997-0f6f39ca5cde?w=400&q=80',
   },
   {
@@ -27,6 +29,8 @@ const trucks = [
     isOpen: true,
     distance: '0.5 mi',
     hours: '10:00AM - 10:00PM',
+    location: 'Westside Plaza',
+    description: 'Traditional street tacos with fresh, handmade tortillas and spicy salsas.',
     image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&q=80',
   },
   {
@@ -40,6 +44,8 @@ const trucks = [
     isOpen: true,
     distance: '0.8 mi',
     hours: '11:30AM - 8:30PM',
+    location: 'University Avenue',
+    description: 'Premium sushi rolls and bento boxes made with fresh, locally sourced fish.',
     image: 'https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=400&q=80',
   },
   {
@@ -53,7 +59,9 @@ const trucks = [
     isOpen: false,
     distance: '1.2 mi',
     hours: '8:00AM - 6:00PM',
-    image: '',
+    location: 'Farmers Market',
+    description: 'Sweet and savory French crepes made to order. Try our signature Nutella crepe.',
+    image: 'https://images.unsplash.com/photo-1519676867240-f03562e64548?w=400&q=80',
   },
   {
     id: 5,
@@ -66,6 +74,8 @@ const trucks = [
     isOpen: true,
     distance: '0.6 mi',
     hours: '11:00AM - 11:00PM',
+    location: 'East Side Station',
+    description: 'Classic American burgers with a modern twist. Our double cheeseburger is a local favorite.',
     image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80',
   },
   {
@@ -79,6 +89,8 @@ const trucks = [
     isOpen: true,
     distance: '1.0 mi',
     hours: '7:00AM - 5:00PM',
+    location: 'Tech Park Courtyard',
+    description: 'Cold-pressed juices, smoothies, and healthy bowls for a refreshing meal.',
     image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80',
   },
 ];
