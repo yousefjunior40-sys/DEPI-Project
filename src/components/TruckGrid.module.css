@@ -32,12 +32,20 @@
   text-decoration: underline;
 }
 
+/* Search row — search bar + filters button side by side */
+.searchRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
 /* Search bar */
 .searchWrapper {
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  flex: 1;
 }
 
 .searchIcon {
@@ -84,7 +92,124 @@
   color: #555;
 }
 
-/* Category filter */
+/* Filters button */
+.filtersBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1.5px solid #e0dfd6;
+  background: #ffffff;
+  color: #454444;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.18s, background 0.18s, color 0.18s;
+  position: relative;
+}
+
+.filtersBtn:hover {
+  border-color: #236c75;
+  color: #236c75;
+}
+
+.filtersBtnActive {
+  background: #236c75;
+  border-color: #236c75;
+  color: #ffffff;
+}
+
+.filtersBtnActive svg path {
+  stroke: #ffffff;
+}
+
+/* Active filter count badge */
+.filtersBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #e2743e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Filter panel */
+.filterPanel {
+  background: #f9f8f4;
+  border: 1.5px solid #e0dfd6;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: slideDown 0.18s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filterLabel {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #454444;
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+/* Chip row */
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Individual chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1.5px solid #e0dfd6;
+  background: #ffffff;
+  color: #454444;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.chip:hover {
+  border-color: #236c75;
+  color: #236c75;
+}
+
+.chipActive {
+  background: #236c75;
+  border-color: #236c75;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Category filter (old — kept for compatibility) */
 .categories {
   display: flex;
   gap: 8px;

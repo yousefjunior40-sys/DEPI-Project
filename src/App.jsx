@@ -14,6 +14,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 // Layout للتحكم في الهيدر والفوتر
 function Layout({ children }) {
   const location = useLocation();
+
   const hideLayout =
     location.pathname === "/login" ||
     location.pathname === "/register";
@@ -38,24 +39,37 @@ export default function App() {
     <BrowserRouter>
       <Layout>
         <Routes>
+
+          {/* HOME PAGE */}
           <Route
             path="/"
             element={
-              <TruckGrid
-                trucks={trucks}
-                isLoading={false}
-                title="Featured Food Trucks"
-                onSeeAll={() => console.log('See all clicked')}
-                onCardClick={(truck) =>
-                  console.log('Clicked:', truck.name)
-                }
-              />
+              <>
+                <HeroSection />
+
+                <TruckGrid
+                  trucks={trucks}
+                  isLoading={false}
+                  title="Featured Food Trucks"
+                  onSeeAll={() => console.log('See all clicked')}
+                  onCardClick={(truck) =>
+                    console.log('Clicked:', truck.name)
+                  }
+                />
+              </>
             }
           />
+
+          {/* AUTH PAGES */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+
+          {/* PROFILE */}
           <Route path="/ProfilePage" element={<ProfilePage />} />
+
+          {/* HERO PAGE (اختياري) */}
           <Route path="/hero" element={<HeroSection />} />
+
         </Routes>
       </Layout>
     </BrowserRouter>
