@@ -4,14 +4,14 @@ import TruckSkeleton from './TruckSkeleton';
 import styles from './TruckGrid.module.css';
 
 const CATEGORIES = [
-  { label: 'Burgers',  emoji: '🍔' },
-  { label: 'Pizza',    emoji: '🍕' },
-  { label: 'Crepes',   emoji: '🥐' },
-  { label: 'Drinks',   emoji: '🥤' },
-  { label: 'Tacos',    emoji: '🌮' },
-  { label: 'Sushi',    emoji: '🍱' },
+  { label: 'Burgers', emoji: '🍔' },
+  { label: 'Pizza', emoji: '🍕' },
+  { label: 'Crepes', emoji: '🥐' },
+  { label: 'Drinks', emoji: '🥤' },
+  { label: 'Tacos', emoji: '🌮' },
+  { label: 'Sushi', emoji: '🍱' },
   { label: 'Desserts', emoji: '🍩' },
-  { label: 'Healthy',  emoji: '🥗' },
+  { label: 'Healthy', emoji: '🥗' },
 ];
 
 const PRICE_RANGES = ['$', '$$', '$$$'];
@@ -23,37 +23,45 @@ export default function TruckGrid({
   onSeeAll,
   onCardClick,
 }) {
-  const [search, setSearch]         = useState('');
-  const [category, setCategory]     = useState('All');
+  const [search, setSearch] = useState('');
+  const [category, setCategory] = useState('All');
   const [priceRange, setPriceRange] = useState('All');
   const [showFilters, setShowFilters] = useState(false);
 
-  // Count active filters for badge
-  const activeFilterCount = (category !== 'All' ? 1 : 0) + (priceRange !== 'All' ? 1 : 0);
+  const searchTerm = search.toLowerCase();
+
+  const activeFilterCount = useMemo(() => {
+    let count = 0;
+    if (category !== 'All') count++;
+    if (priceRange !== 'All') count++;
+    return count;
+  }, [category, priceRange]);
 
   const filtered = useMemo(() => {
     return trucks.filter((truck) => {
       const matchesSearch =
-        truck.name.toLowerCase().includes(search.toLowerCase()) ||
-        truck.cuisine.toLowerCase().includes(search.toLowerCase());
+        truck.name?.toLowerCase().includes(searchTerm) ||
+        truck.cuisine?.toLowerCase().includes(searchTerm);
 
       const matchesCategory =
-        category === 'All' || truck.category === category;
+        category === 'All' ||
+        truck.category?.toLowerCase() === category.toLowerCase();
 
       const matchesPrice =
-        priceRange === 'All' || truck.priceRange === priceRange;
+        priceRange === 'All' ||
+        truck.priceRange === priceRange;
 
       return matchesSearch && matchesCategory && matchesPrice;
     });
-  }, [trucks, search, category, priceRange]);
+  }, [trucks, searchTerm, category, priceRange]);
 
   return (
     <section className={styles.section}>
-
-      {/* Search bar + Filters button */}
+      {/* Search + Filters */}
       <div className={styles.searchRow}>
         <div className={styles.searchWrapper}>
           <span className={styles.searchIcon}>🔍</span>
+
           <input
             className={styles.searchInput}
             type="text"
@@ -61,6 +69,7 @@ export default function TruckGrid({
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+
           {search && (
             <button className={styles.clearBtn} onClick={() => setSearch('')}>
               ✕
@@ -69,15 +78,18 @@ export default function TruckGrid({
         </div>
 
         <button
-          className={`${styles.filtersBtn} ${showFilters ? styles.filtersBtnActive : ''}`}
+          className={`${styles.filtersBtn} ${
+            showFilters ? styles.filtersBtnActive : ''
+          }`}
           onClick={() => setShowFilters((v) => !v)}
         >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 4h12M4 8h8M6 12h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-          </svg>
+          <span>☰</span>
           Filters
+
           {activeFilterCount > 0 && (
-            <span className={styles.filtersBadge}>{activeFilterCount}</span>
+            <span className={styles.filtersBadge}>
+              {activeFilterCount}
+            </span>
           )}
         </button>
       </div>
@@ -87,12 +99,15 @@ export default function TruckGrid({
         <div className={styles.filterPanel}>
           <div className={styles.filterGroup}>
             <p className={styles.filterLabel}>Category</p>
+
             <div className={styles.chipRow}>
               {CATEGORIES.map(({ label, emoji }) => (
                 <button
                   key={label}
-                  className={`${styles.chip} ${category === label ? styles.chipActive : ''}`}
-                  onClick={() => setCategory(category === label ? 'All' : label)}
+                  className={`${styles.chip} ${
+                    category === label ? styles.chipActive : ''
+                  }`}
+                  onClick={() => setCategory(label)}
                 >
                   <span>{emoji}</span> {label}
                 </button>
@@ -102,12 +117,15 @@ export default function TruckGrid({
 
           <div className={styles.filterGroup}>
             <p className={styles.filterLabel}>Price Range</p>
+
             <div className={styles.chipRow}>
               {PRICE_RANGES.map((p) => (
                 <button
                   key={p}
-                  className={`${styles.chip} ${priceRange === p ? styles.chipActive : ''}`}
-                  onClick={() => setPriceRange(priceRange === p ? 'All' : p)}
+                  className={`${styles.chip} ${
+                    priceRange === p ? styles.chipActive : ''
+                  }`}
+                  onClick={() => setPriceRange(p)}
                 >
                   {p}
                 </button>
@@ -118,7 +136,10 @@ export default function TruckGrid({
           {activeFilterCount > 0 && (
             <button
               className={styles.resetBtn}
-              onClick={() => { setCategory('All'); setPriceRange('All'); }}
+              onClick={() => {
+                setCategory('All');
+                setPriceRange('All');
+              }}
             >
               Clear filters
             </button>
@@ -126,7 +147,7 @@ export default function TruckGrid({
         </div>
       )}
 
-      {/* Loading skeletons */}
+      {/* Loading */}
       {isLoading && (
         <div className={styles.grid}>
           {Array.from({ length: 6 }).map((_, i) => (
@@ -152,16 +173,22 @@ export default function TruckGrid({
       {!isLoading && filtered.length === 0 && (
         <div className={styles.empty}>
           <p className={styles.emptyTitle}>No trucks found</p>
-          <p className={styles.emptySub}>Try a different search or category</p>
+          <p className={styles.emptySub}>
+            Try a different search or category
+          </p>
+
           <button
             className={styles.resetBtn}
-            onClick={() => { setSearch(''); setCategory('All'); setPriceRange('All'); }}
+            onClick={() => {
+              setSearch('');
+              setCategory('All');
+              setPriceRange('All');
+            }}
           >
             Reset filters
           </button>
         </div>
       )}
-
     </section>
   );
 }

@@ -2,7 +2,21 @@ import "./HeroSection.css";
 import { FiMapPin, FiSearch } from "react-icons/fi";
 
 const HeroSection = () => {
-  return (
+
+  const categories = [
+    { id: "burger", name: "Burgers", icon: "🍔" },
+    { id: "pizza", name: "Pizza", icon: "🍕" },
+    { id: "crepes", name: "Crepes", icon: "🥞" },
+    { id: "drinks", name: "Drinks", icon: "🥤" },
+    { id: "tacos", name: "Tacos", icon: "🌮" },
+    { id: "sushi", name: "Sushi", icon: "🍣" },
+    { id: "dessert", name: "Desserts", icon: "🍩" },
+    { id: "healthy", name: "Healthy", icon: "🥗" },
+    { id: "bbq", name: "BBQ", icon: "🍖" }, // 👈 زودنا واحدة عشان يبقوا 9
+  ];
+
+return (
+  <>
     <section className="hero">
 
       {/* badge */}
@@ -19,7 +33,7 @@ const HeroSection = () => {
       {/* desc */}
       <p className="hero-desc">
         Discover the best food trucks in your area. Order delicious
-        <br />street food and get it delivered fresh.
+        <br /> street food and get it delivered fresh.
       </p>
 
       {/* search */}
@@ -40,15 +54,33 @@ const HeroSection = () => {
 
       {/* icons */}
       <div className="hero-icons">
-        <span className="icon burger">🍔</span>
-        <span className="icon pizza">🍕</span>
-        <span className="icon taco">🌮</span>
-        <span className="icon drink">🥤</span>
-        <span className="icon donut">🍩</span>
+  <span className="icon burger">🍔</span>
+  <span className="icon pizza">🍕</span>
+  <span className="icon taco">🌮</span>
+  <span className="icon drink">🥤</span>
+  <span className="icon donut">🍩</span>
+</div>
+    </section>
+
+    <section>
+      {/* header */}
+      <div className="categories-header">
+        <h2>Browse by Category</h2>
+        <span className="view-all">View all →</span>
       </div>
 
+      {/* categories */}
+      <div className="categories">
+        {categories.map((cat) => (
+          <div key={cat.id} className="category-card">
+            <span className="cat-icon">{cat.icon}</span>
+            <span className="cat-name">{cat.name}</span>
+          </div>
+        ))}
+      </div>
     </section>
-  );
+  </>
+);
 };
 
 export default HeroSection;
