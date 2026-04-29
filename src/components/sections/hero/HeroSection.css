@@ -1,18 +1,47 @@
 /* fonts */
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500&display=swap"); /* section */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500&display=swap");
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* section */
 .hero {
+  width: 100vw;           /* ← التعديل: 100vw بدل 100% */
+  min-height: 100vh;
+  margin-left: calc(-50vw + 50%); /* ← لو فيه container بيقيّده */
+
   text-align: center;
   padding: 140px 20px;
-  background: linear-gradient(rgba(232, 254, 230, 0.9), rgba(232, 254, 230, 0.9)), url("/assets/hero-bg.png");
-  background-size: cover;
-  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    to right,
+    #e8f5e9,
+    #f7f3df
+  );
+
   position: relative;
   overflow: hidden;
-} /* overlay */ /* content فوق */
+}
+
 .hero > * {
   position: relative;
   z-index: 2;
-} /* badge */
+}
+
+/* badge */
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -25,9 +54,12 @@
   font-family: "Plus Jakarta Sans", sans-serif;
   margin-bottom: 35px;
 }
+
 .location-icon {
   font-size: 16px;
-} /* title */
+}
+
+/* title */
 .hero-title {
   font-family: "Outfit", sans-serif;
   font-size: 64px;
@@ -35,10 +67,12 @@
   color: #2f2f2f;
   line-height: 1.25;
 }
+
 .hero-title span {
   color: #e2743e;
   position: relative;
 }
+
 .hero-title span::after {
   content: "";
   position: absolute;
@@ -49,7 +83,9 @@
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q50 20 100 10 T200 10' stroke='%23E2743E' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")
     no-repeat center;
   background-size: 100% 100%;
-} /* desc */
+}
+
+/* desc */
 .hero-desc {
   margin-top: 20px;
   color: #6f6f6f;
@@ -58,13 +94,16 @@
   margin-right: auto;
   line-height: 1.7;
   font-family: "Plus Jakarta Sans", sans-serif;
-} /* search */
+}
+
+/* search */
 .hero-search {
   margin-top: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .search-box {
   display: flex;
   align-items: center;
@@ -75,17 +114,21 @@
   height: 60px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
 }
+
 .search-icon {
   color: #999;
   margin-right: 10px;
 }
+
 .search-box input {
   border: none;
   outline: none;
   background: transparent;
   width: 100%;
   font-family: "Plus Jakarta Sans", sans-serif;
-} /* button */
+}
+
+/* button */
 .hero-search button {
   margin-left: 12px;
   padding: 16px 28px;
@@ -97,10 +140,13 @@
   cursor: pointer;
   transition: 0.3s;
 }
+
 .hero-search button:hover {
   background: #cf6633;
   transform: translateY(-2px);
-} /* stats */
+}
+
+/* stats */
 .hero-stats {
   margin-top: 35px;
   display: flex;
@@ -109,36 +155,38 @@
   color: #777;
   font-family: "Plus Jakarta Sans", sans-serif;
 }
+
 .hero-stats span b {
   color: #e2743e;
-} /* icons */
+}
+
+/* icons */
 .hero-icons {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
+
 .hero-icons .icon {
   position: absolute;
   font-size: 28px;
   opacity: 0.2;
   animation: float 6s ease-in-out infinite;
 }
+
 .burger { top: 22%; left: 6%; }
-.donut { top: 15%; left: 70%; transform: translateX(-50%); }
-.taco { top: 24%; right: 6%; }
-.pizza { bottom: 18%; left: 30%; }
-.drink { bottom: 13%; right: 35%; } /* animation */
+.donut  { top: 15%; left: 70%; transform: translateX(-50%); }
+.taco   { top: 24%; right: 6%; }
+.pizza  { bottom: 18%; left: 30%; }
+.drink  { bottom: 13%; right: 35%; }
+
+/* animation */
 @keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
 }
+
 /* categories header */
 .categories-header {
   max-width: 1100px;
@@ -154,6 +202,7 @@
   font-size: 28px;
   font-weight: 700;
 }
+
 .view-all {
   color: #ff7a00;
   cursor: pointer;
@@ -179,7 +228,7 @@
 /* desktop */
 @media (min-width: 992px) {
   .categories {
-    grid-template-columns: repeat(9, 1fr); /* ✅ 9 في الصف */
+    grid-template-columns: repeat(9, 1fr);
   }
 }
 

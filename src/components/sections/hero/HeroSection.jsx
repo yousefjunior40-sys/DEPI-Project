@@ -1,5 +1,6 @@
 import "./HeroSection.css";
 import { FiMapPin, FiSearch } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
 
@@ -12,7 +13,7 @@ const HeroSection = () => {
     { id: "sushi", name: "Sushi", icon: "🍣" },
     { id: "dessert", name: "Desserts", icon: "🍩" },
     { id: "healthy", name: "Healthy", icon: "🥗" },
-    { id: "bbq", name: "BBQ", icon: "🍖" }, // 👈 زودنا واحدة عشان يبقوا 9
+    { id: "bbq", name: "BBQ", icon: "🍖" },
   ];
 
 return (
@@ -54,12 +55,12 @@ return (
 
       {/* icons */}
       <div className="hero-icons">
-  <span className="icon burger">🍔</span>
-  <span className="icon pizza">🍕</span>
-  <span className="icon taco">🌮</span>
-  <span className="icon drink">🥤</span>
-  <span className="icon donut">🍩</span>
-</div>
+        <span className="icon burger">🍔</span>
+        <span className="icon pizza">🍕</span>
+        <span className="icon taco">🌮</span>
+        <span className="icon drink">🥤</span>
+        <span className="icon donut">🍩</span>
+      </div>
     </section>
 
     <section>
@@ -72,10 +73,12 @@ return (
       {/* categories */}
       <div className="categories">
         {categories.map((cat) => (
-          <div key={cat.id} className="category-card">
-            <span className="cat-icon">{cat.icon}</span>
-            <span className="cat-name">{cat.name}</span>
-          </div>
+          <Link to="/food-trucks" key={cat.id} style={{ textDecoration: "none" }}>
+            <div className="category-card">
+              <span className="cat-icon">{cat.icon}</span>
+              <span className="cat-name">{cat.name}</span>
+            </div>
+          </Link>
         ))}
       </div>
     </section>
