@@ -14,14 +14,12 @@ import FoodTrucks from "./components/FoodTrucks";
 
 function Layout({ children }) {
   const location = useLocation();
-
   const hideLayout =
     location.pathname === "/login" || location.pathname === "/register";
 
   return (
     <>
       {!hideLayout && <Header />}
-
       <main style={{ flex: 1, background: "#EBEAE0" }}>
         {children}
         {!hideLayout && (
@@ -30,7 +28,6 @@ function Layout({ children }) {
           </div>
         )}
       </main>
-
       {!hideLayout && <Footer />}
     </>
   );
@@ -42,7 +39,6 @@ export default function App() {
   return (
     <Layout>
       <Routes>
-        {/* HOME PAGE */}
         <Route
           path="/"
           element={
@@ -54,7 +50,6 @@ export default function App() {
                   isLoading={false}
                   title="Featured Food Trucks"
                   showSearch={false}
-                  showCategoryFilter={false}
                   onSeeAll={() => console.log("See all clicked")}
                   onCardClick={(truck) => navigate(`/truck/${truck.id}`)}
                 />
@@ -62,7 +57,6 @@ export default function App() {
             </>
           }
         />
-
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/ProfilePage" element={<ProfilePage />} />

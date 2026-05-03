@@ -16,10 +16,13 @@ export default function FoodTrucks() {
   }
 
   return (
-    <TruckGrid
-      trucks={trucks}
-      title="Food Trucks Near You"
-      onCardClick={(truck) => setSelectedTruck(truck)}
-    />
+    <div style={{ padding: "2rem" }}>
+      <TruckGrid
+        trucks={trucks}
+        title="Food Trucks Near You"
+        showCategoryFilter={true}
+        onCardClick={(truck) => setSelectedTruck(truck)}
+      />
+    </div>
   );
 }

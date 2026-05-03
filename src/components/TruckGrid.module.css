@@ -10,13 +10,7 @@
   margin-bottom: 1.25rem;
 }
 
-.title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: #236c75;
-  margin: 0;
-}
+
 
 .seeAll {
   background: none;
@@ -295,4 +289,17 @@
 .resetBtn:hover {
   background: #236c75;
   color: #fff;
+}
+.title {
+  font-family: "Outfit", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #464343;
+  margin: 0 0 20px;
+}
+
+.count {
+  font-size: 13px;
+  color: #999;
+  margin: 0 0 12px;
 }

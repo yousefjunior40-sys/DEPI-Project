@@ -20,6 +20,8 @@ export default function TruckGrid({
   trucks = [],
   title = 'Featured Food Trucks',
   isLoading = false,
+  showSearch = true,
+  showCategoryFilter = true,
   onSeeAll,
   onCardClick,
 }) {
@@ -32,127 +34,119 @@ export default function TruckGrid({
 
   const activeFilterCount = useMemo(() => {
     let count = 0;
-    if (category !== 'All') count++;
+    if (showCategoryFilter && category !== 'All') count++;
     if (priceRange !== 'All') count++;
     return count;
-  }, [category, priceRange]);
+  }, [category, priceRange, showCategoryFilter]);
 
   const filtered = useMemo(() => {
     return trucks.filter((truck) => {
       const matchesSearch =
+        !showSearch ||
         truck.name?.toLowerCase().includes(searchTerm) ||
         truck.cuisine?.toLowerCase().includes(searchTerm);
-
       const matchesCategory =
+        !showCategoryFilter ||
         category === 'All' ||
         truck.category?.toLowerCase() === category.toLowerCase();
-
       const matchesPrice =
         priceRange === 'All' ||
         truck.priceRange === priceRange;
-
       return matchesSearch && matchesCategory && matchesPrice;
     });
-  }, [trucks, searchTerm, category, priceRange]);
+  }, [trucks, searchTerm, category, priceRange, showSearch, showCategoryFilter]);
 
   return (
     <section className={styles.section}>
+
+      {/* Title */}
+      {title && (
+        <h2 className={styles.title}>{title}</h2>
+      )}
+
       {/* Search + Filters */}
-      <div className={styles.searchRow}>
-        <div className={styles.searchWrapper}>
-          <span className={styles.searchIcon}>🔍</span>
-
-          <input
-            className={styles.searchInput}
-            type="text"
-            placeholder="Search trucks or cuisine..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-
-          {search && (
-            <button className={styles.clearBtn} onClick={() => setSearch('')}>
-              ✕
-            </button>
-          )}
-        </div>
-
-        <button
-          className={`${styles.filtersBtn} ${
-            showFilters ? styles.filtersBtnActive : ''
-          }`}
-          onClick={() => setShowFilters((v) => !v)}
-        >
-          <span>☰</span>
-          Filters
-
-          {activeFilterCount > 0 && (
-            <span className={styles.filtersBadge}>
-              {activeFilterCount}
-            </span>
-          )}
-        </button>
-      </div>
-
-      {/* Filter Panel */}
-      {showFilters && (
-        <div className={styles.filterPanel}>
-          <div className={styles.filterGroup}>
-            <p className={styles.filterLabel}>Category</p>
-
-            <div className={styles.chipRow}>
-              {CATEGORIES.map(({ label, emoji }) => (
-                <button
-                  key={label}
-                  className={`${styles.chip} ${
-                    category === label ? styles.chipActive : ''
-                  }`}
-                  onClick={() => setCategory(label)}
-                >
-                  <span>{emoji}</span> {label}
-                </button>
-              ))}
+      {showSearch && (
+        <>
+          <div className={styles.searchRow}>
+            <div className={styles.searchWrapper}>
+              <span className={styles.searchIcon}>🔍</span>
+              <input
+                className={styles.searchInput}
+                type="text"
+                placeholder="Search trucks or cuisine..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              {search && (
+                <button className={styles.clearBtn} onClick={() => setSearch('')}>✕</button>
+              )}
             </div>
-          </div>
-
-          <div className={styles.filterGroup}>
-            <p className={styles.filterLabel}>Price Range</p>
-
-            <div className={styles.chipRow}>
-              {PRICE_RANGES.map((p) => (
-                <button
-                  key={p}
-                  className={`${styles.chip} ${
-                    priceRange === p ? styles.chipActive : ''
-                  }`}
-                  onClick={() => setPriceRange(p)}
-                >
-                  {p}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {activeFilterCount > 0 && (
             <button
-              className={styles.resetBtn}
-              onClick={() => {
-                setCategory('All');
-                setPriceRange('All');
-              }}
+              className={`${styles.filtersBtn} ${showFilters ? styles.filtersBtnActive : ''}`}
+              onClick={() => setShowFilters((v) => !v)}
             >
-              Clear filters
+              <span>☰</span>
+              Filters
+              {activeFilterCount > 0 && (
+                <span className={styles.filtersBadge}>{activeFilterCount}</span>
+              )}
             </button>
+          </div>
+
+          {showFilters && (
+            <div className={styles.filterPanel}>
+              {showCategoryFilter && (
+                <div className={styles.filterGroup}>
+                  <p className={styles.filterLabel}>Category</p>
+                  <div className={styles.chipRow}>
+                    {CATEGORIES.map(({ label, emoji }) => (
+                      <button
+                        key={label}
+                        className={`${styles.chip} ${category === label ? styles.chipActive : ''}`}
+                        onClick={() => setCategory(label)}
+                      >
+                        <span>{emoji}</span> {label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <div className={styles.filterGroup}>
+                <p className={styles.filterLabel}>Price Range</p>
+                <div className={styles.chipRow}>
+                  {PRICE_RANGES.map((p) => (
+                    <button
+                      key={p}
+                      className={`${styles.chip} ${priceRange === p ? styles.chipActive : ''}`}
+                      onClick={() => setPriceRange(p)}
+                    >
+                      {p}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              {activeFilterCount > 0 && (
+                <button
+                  className={styles.resetBtn}
+                  onClick={() => { setCategory('All'); setPriceRange('All'); }}
+                >
+                  Clear filters
+                </button>
+              )}
+            </div>
           )}
-        </div>
+
+          {/* Count */}
+          {!isLoading && (
+            <p className={styles.count}>{filtered.length} trucks found</p>
+          )}
+        </>
       )}
 
       {/* Loading */}
       {isLoading && (
         <div className={styles.grid}>
-          {Array.from({ length: 6 }).map((_, i) => (
-            <TruckSkeleton key={i} />
-          ))}
+          {Array.from({ length: 6 }).map((_, i) => <TruckSkeleton key={i} />)}
         </div>
       )}
 
@@ -160,11 +154,7 @@ export default function TruckGrid({
       {!isLoading && filtered.length > 0 && (
         <div className={styles.grid}>
           {filtered.map((truck) => (
-            <TruckCard
-              key={truck.id}
-              truck={truck}
-              onClick={onCardClick}
-            />
+            <TruckCard key={truck.id} truck={truck} onClick={onCardClick} />
           ))}
         </div>
       )}
@@ -173,17 +163,10 @@ export default function TruckGrid({
       {!isLoading && filtered.length === 0 && (
         <div className={styles.empty}>
           <p className={styles.emptyTitle}>No trucks found</p>
-          <p className={styles.emptySub}>
-            Try a different search or category
-          </p>
-
+          <p className={styles.emptySub}>Try a different search or category</p>
           <button
             className={styles.resetBtn}
-            onClick={() => {
-              setSearch('');
-              setCategory('All');
-              setPriceRange('All');
-            }}
+            onClick={() => { setSearch(''); setCategory('All'); setPriceRange('All'); }}
           >
             Reset filters
           </button>
