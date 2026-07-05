@@ -14,9 +14,9 @@ body {
 
 /* section */
 .hero {
-  width: 100vw;           /* ← التعديل: 100vw بدل 100% */
+  width: 100vw;
   min-height: 100vh;
-  margin-left: calc(-50vw + 50%); /* ← لو فيه container بيقيّده */
+  margin-left: calc(-50vw + 50%);
 
   text-align: center;
   padding: 140px 20px;
@@ -194,6 +194,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 20px;
 }
 
 .categories-header h2 {
@@ -208,38 +209,69 @@ body {
   cursor: pointer;
 }
 
-/* categories grid */
+/* categories wrapper (يحتوي الأسهم + السكرول) - متوسط في النص */
+.categories-wrapper {
+  max-width: fit-content;
+  margin: 0 auto 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* categories - يظهر بالظبط 4 كروت والباقي سكرول */
+/* categories - يظهر 6 كروت والباقي سكرول */
 .categories {
-  display: grid;
+  display: flex;
   gap: 16px;
-  max-width: 1100px;
-  margin: auto;
-  margin-bottom: 40px;
-  grid-template-columns: repeat(2, 1fr);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 8px 4px;
+
+  /* 6 كروت × عرض الكارت + 5 مسافات بينهم */
+  width: calc(6 * 160px + 5 * 16px);
+  max-width: 100%;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-/* tablet */
-@media (min-width: 576px) {
-  .categories {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.categories::-webkit-scrollbar {
+  display: none;
 }
 
-/* desktop */
-@media (min-width: 992px) {
-  .categories {
-    grid-template-columns: repeat(9, 1fr);
-  }
+/* أزرار السكرول */
+.scroll-btn {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-size: 18px;
+  color: #464343;
+}
+
+.scroll-btn:hover {
+  background: #f0f0f0;
+  border-color: #e2743e;
+  color: #e2743e;
 }
 
 /* card */
 .category-card {
   background: #f8f8f6;
-  padding: 18px 10px;
+  padding: 18px 14px;
   border-radius: 16px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  flex-shrink: 0;
+  width: 160px;
 }
 
 .category-card:hover {
