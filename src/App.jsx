@@ -11,6 +11,7 @@ import trucks from "./components/trucks";
 import TruckDetail from "./components/TruckDetail";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import FoodTrucks from "./components/FoodTrucks";
+import CTASection from "./pages/AuthPages/cta";
 
 function Layout({ children }) {
   const location = useLocation();
@@ -59,6 +60,7 @@ export default function App() {
                   onCardClick={(truck) => navigate(`/truck/${truck.id}`)}
                 />
               </div>
+              <CTASection />
             </>
           }
         />
